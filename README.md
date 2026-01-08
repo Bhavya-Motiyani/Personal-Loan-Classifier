@@ -53,8 +53,8 @@ Key Insights
 | Feature           | Purpose                    |
 | ----------------- | -------------------------- |
 | CCToIncomeRatio   | Captures spending behavior |
-| Age Group         | Improves interpretability  |
-| Mortgage Category | Risk-based segmentation    |
+| Age Group         | 20-30,30-40,etc...         |
+| Mortgage Category | None,Low,Normal,High       |
 
 🤖 Model Development
 | Model                    | Preprocessing                          | Imbalance Handling | Pipeline |
