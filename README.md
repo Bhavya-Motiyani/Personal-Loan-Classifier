@@ -2,151 +2,103 @@
 End-to-end ML project to predict personal loan acceptance for a retail bank (Thera Bank). Includes business-driven EDA, feature engineering, imbalance handling with SMOTENC, GridSearchCV tuning, model comparison, and Flask-based deployment. Optimized for high recall to minimize missed revenue opportunities.
 
 Personal Loan Acceptance Prediction
-📌 Project Overview
-
-Thera Bank has a strong base of depositors (liability customers) but relatively fewer borrowers (asset customers).
-This project aims to predict which existing customers are most likely to accept a personal loan, helping the bank improve campaign targeting, reduce costs, and maximize revenue 
-
-Personal Loan Classifier
-
-.
-
-The project follows a business-first, end-to-end machine learning workflow—from exploratory data analysis to model deployment.
-
-📊 Dataset
-
-Size: 5,000 customers
-
-Target Variable: Personal Loan (Accepted / Not Accepted)
-
-Features include:
-
-Demographics: Age, Experience, Family, Education
-
-Financials: Income, Mortgage, Credit Card Spend
-
-Banking Behavior: CD Account, Online Banking, Credit Card usage
-
+📌 Project Summary
+Aspect	Description
+Problem	Identify depositors most likely to accept a personal loan
+Goal	Improve campaign targeting and maximize loan revenue
+Approach	Business-driven EDA + end-to-end ML pipelines
+Outcome	Random Forest model deployed on localhost
+📊 Dataset Information
+Attribute	Details
+Source	Thera Bank Personal Loan Dataset
+Records	5,000 customers
+Target Variable	Personal Loan (Accepted / Not Accepted)
+Class Distribution	~10% positive class (highly imbalanced)
+🧾 Feature Overview
+Category	Features
+Demographics	Age, Experience, Family, Education
+Financial	Income, Mortgage
+Banking Behavior	CCAvg, CD Account, Online, Credit Card
+Engineered Features	Age Group, CCToIncomeRatio, Mortgage Category
 🔍 Exploratory Data Analysis (EDA)
-
-EDA was performed with a business decision-making mindset, not just visualization.
-
 Key Insights
-
-Only customers with income > $50,000 accepted personal loans
-
-CD Account holders are ~6.5x more likely to take a loan
-
-High mortgage + high income customers show higher acceptance rates
-
-Majority of loan takers are graduates or professionals
-
-Only ~10% of customers accepted loans → severe class imbalance
-
-Business Actions Derived
-
-Avoid campaigning to low-income customers (< $50k)
-
-Prioritize CD Account holders, especially via online channels
-
-Focus on customers aged 30–60
-
-Target high-mortgage, high-income segments
-
-Give higher priority to graduates and professionals
-
-EDA notebook also documents clear campaign focus groups based on these insights.
-
+Observation	Business Interpretation
+Income < $50k → No loan acceptance	Avoid campaigning low-income customers
+CD Account holders → 6.5x higher acceptance	Prioritize CD customers
+High income + high mortgage → high conversion	Target premium customers
+Graduates & professionals dominate loan takers	Education impacts loan decisions
+Only ~10% acceptance rate	Severe class imbalance
+Campaign Focus Groups
+Priority Segment
+Income > $50,000
+Age group 30–60
+CD Account holders
+High mortgage customers
+Graduates & professionals
 🛠 Feature Engineering
-
-CCToIncomeRatio – proportion of income spent on credit cards
-
-Age Groups – binned age categories
-
-Mortgage Categories – Low / Normal / High
-
-These features were guided by EDA findings and business relevance.
-
+Feature	Purpose
+CCToIncomeRatio	Measures spending behavior
+Age Group	Improves interpretability
+Mortgage Category	Captures risk segmentation
 🤖 Model Development
+Models Implemented
+Model	Preprocessing	Imbalance Handling
+Logistic Regression	ColumnTransformer (scaling + encoding)	SMOTENC
+Random Forest Classifier	Not required	SMOTENC
+Pipeline Design
 
-Two models were built and compared:
+Preprocessing, imbalance handling, and model combined into single pipelines
 
-1️⃣ Logistic Regression
+Leakage-free modeling
 
-Preprocessing using ColumnTransformer
+Hyperparameter tuning via GridSearchCV
 
-Scaling for numerical features
-
-Encoding for categorical features
-
-SMOTENC used for class imbalance handling
-
-Entire workflow wrapped in a single pipeline
-
-2️⃣ Random Forest Classifier
-
-No preprocessing required (tree-based model)
-
-SMOTENC + model pipeline
-
-Focused on capturing non-linear patterns
-
-⚖️ Model Evaluation
-
-Since missing a potential borrower (False Negative) is more costly than targeting the wrong customer, Recall was prioritized during model tuning.
-
-Evaluation metrics used:
-
-Confusion Matrix
-
-ROC-AUC Curve
-
-Classification Report
-
+⚖️ Model Evaluation Strategy
+Metric	Reason
+Recall (Priority)	False negatives = missed revenue
+Confusion Matrix	Error-type analysis
+ROC-AUC Curve	Threshold-independent performance
+Classification Report	Overall model health
+Final Model Selection
 Result
-
-Random Forest Classifier outperformed Logistic Regression
-
-Higher recall and better ROC-AUC
-
-Chosen as the final model
-
-🚀 Model Deployment
-
-Best-performing model saved using pickle
-
-Deployed on a localhost web application
-
-Enables real-time prediction using customer inputs
-
-📁 Project Structure
-
-EDA Notebook – Business-driven exploratory analysis & insights
-
-Model Notebook – Feature engineering, pipelines, training & evaluation
-
-Saved Model – Pickled final model
-
-Deployment Code – Localhost web app for predictions
-
+Random Forest achieved higher recall and ROC-AUC
+Better suited for business objective
+Selected as final model
+🚀 Deployment
+Step	Description
+Model Saving	Serialized using pickle
+Deployment	Localhost web application
+Usage	Real-time loan acceptance prediction
+📁 Project Components
+File	Purpose
+EDA Notebook	Business insights & campaign strategy
+Model Notebook	Feature engineering, pipelines & evaluation
+Pickle File	Final trained model
+Deployment Code	Localhost prediction app
 🧠 Key Learnings
-
-Translating EDA into business actions
-
-Handling imbalanced datasets using SMOTENC
-
-Building leakage-free ML pipelines
-
-Using GridSearchCV with recall-based optimization
-
-Comparing models beyond accuracy
-
-Deploying an ML model end-to-end
-
-📌 Tech Stack
-
-Python, Pandas, NumPy, Seaborn, Matplotlib, Scikit-learn, Imbalanced-learn, Pickle, Flask
-
+Area	Takeaway
+Business Analytics	EDA → actionable decisions
+ML Engineering	End-to-end pipelines
+Imbalance Handling	SMOTENC effectiveness
+Model Evaluation	Metrics aligned with business cost
+Deployment	From notebook to usable product
+🧰 Tech Stack
+Category	Tools
+Data Processing	Pandas, NumPy
+Visualization	Seaborn, Matplotlib
+Modeling	Scikit-learn, Imbalanced-learn
+Deployment	Flask
+Model Saving	Pickle
 📜 License
 
-MIT License — free to use for learning and reference with attribution
+MIT License — Free for learning and reference with attribution.
+
+👩‍💻 Author
+
+Bhavya Motiyani
+B.Tech in Computer Science and Engineering
+(Data Science Specialization)
+Gujarat Technological University — VGEC
+
+📧 Email: bhavyamotiyani68@gmail.com
+🔗 [LinkedIn Profile](https://www.linkedin.com/in/bhavya-motiyani-059544306)
