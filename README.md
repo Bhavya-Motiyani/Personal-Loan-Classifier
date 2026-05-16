@@ -103,13 +103,19 @@ Key Insights
 | Deployment         | From notebook to application       |
 
 🧰 Tech Stack
-| Category        | Tools                          |
-| --------------- | ------------------------------ |
-| Data Processing | Pandas, NumPy                  |
-| Visualization   | Matplotlib, Seaborn            |
-| Modeling        | Scikit-learn, Imbalanced-learn |
-| Deployment      | Flask                          |
-| Model Saving    | Pickle                         |
+| Category | Tools |
+| --- | --- |
+| Data Processing | Pandas, NumPy |
+| Machine Learning | Scikit-learn, Imbalanced-learn |
+| Explainability | SHAP |
+| Backend | Flask, Python |
+| Frontend Structure | HTML |
+| Frontend Styling | CSS, Tailwind CSS |
+| Frontend Interactivity | JavaScript |
+| Data Visualization | Matplotlib, Seaborn, Custom Interactive Visualizations |
+| Deployment | Render |
+| Model Serialization | Pickle |
+| Version Control | Git, GitHub |
 
 📜 License
 | License     | Description                                    |
