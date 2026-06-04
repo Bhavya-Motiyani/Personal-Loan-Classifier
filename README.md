@@ -128,6 +128,7 @@ Key Insights
 Bhavya Motiyani
 B.Tech in Computer Science and Engineering
 (Data Science Specialization)
+
 Gujarat Technological University — VGEC
 
 📧 Email: bhavyamotiyani68@gmail.com
