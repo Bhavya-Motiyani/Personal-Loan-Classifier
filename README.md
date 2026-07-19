@@ -77,6 +77,50 @@ Key Insights
 | Random Forest Classifier | Higher recall & ROC-AUC      |
 | **Final Choice**         | **Random Forest Classifier** |
 
+
+### Random Forest Classifier (GridSearchCV) — Selected Model
+
+```text
+              precision    recall  f1-score   support
+
+           0       1.00      0.89      0.94      1132
+           1       0.44      0.96      0.60       105
+
+    accuracy                           0.89      1237
+   macro avg       0.72      0.92      0.77      1237
+weighted avg       0.95      0.89      0.91      1237
+```
+
+- **Recall (Loan Accepted) on Test:** **96%**
+
+---
+
+### Random Forest Classifier (Optuna) — Experimental
+
+```text
+              precision    recall  f1-score   support
+
+           0       1.00      0.86      0.92      1132
+           1       0.40      0.97      0.56       105
+
+    accuracy                           0.87      1237
+   macro avg       0.70      0.92      0.74      1237
+weighted avg       0.95      0.87      0.89      1237
+```
+
+- **Training Accuracy:** **99%**
+- **Recall (Loan Accepted) on Test:** **97%**
+
+---
+
+### Final Model Selection
+
+Both **GridSearchCV** and **Optuna** were used to tune the Random Forest Classifier.
+
+Although the Optuna-tuned model achieved a slightly higher **recall (97%)** and **99% training accuracy**, its performance on the test set was weaker, with lower overall accuracy, precision, and F1-score.
+
+Therefore, the **GridSearchCV-tuned Random Forest** was selected as the final production model since it provided a better balance between recall and overall generalization while still achieving an excellent **96% recall** on the positive class.
+
 🚀 Deployment
 | Step                | Description                   |
 | ------------------- | ----------------------------- |
